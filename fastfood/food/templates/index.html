@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+FastFood
+{% endblock title %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero" style="text-align:center; padding: 2rem;">
+    <div class="hero-text" style="margin-bottom: 1.5rem;">
+        <h1 style="font-size: 3rem; font-weight: bold;">
+            Meat, Eat & Enjoy <span style="color: #e63946;">The truu taste</span>
+        </h1>
+        <p style="font-size: 1.25rem; color: #555;">
+            Experience deliciousness in every bite — fresh, juicy, and made just for you.
+        </p>
+    </div>
+    <div class="hero-image" style="display: flex; justify-content: center;">
+        <img src="{% static 'images/hero-burger.jpg' %}" alt="hero burger" style="height: 500px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+    </div>
+</section>
+
+<!-- Featured Menu Section -->
+<section class="featured-menu" style="padding: 2rem; background-color: #f9f9f9;">
+    <h2 style="text-align:center; margin-bottom: 2rem; font-size: 2rem; color: #333;">Our Favorites</h2>
+    <div class="menu-items" style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+        <!-- Example Menu Item -->
+        <div class="menu-item" style="width: 250px; text-align: center; border: 1px solid #ddd; border-radius: 10px; padding: 1rem; background-color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <img src="{% static 'images/burger.jpg' %}" alt="Classic Burger" style="width: 100%; border-radius: 10px;">
+            <h3 style="margin: 1rem 0 0.5rem;">Classic Burger</h3>
+            <p style="color: #777;">Juicy beef patty with fresh lettuce, tomato, and cheese.</p>
+            <p style="font-weight: bold; margin-top: 0.5rem;">$8.99</p>
+        </div>
+        <div class="menu-item" style="width: 250px; text-align: center; border: 1px solid #ddd; border-radius: 10px; padding: 1rem; background-color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <img src="{% static 'images/fries.avif' %}" alt="Crispy Fries" style="width: 100%; border-radius: 10px;">
+            <h3 style="margin: 1rem 0 0.5rem;">Crispy Fries</h3>
+            <p style="color: #777;">Golden fries with a pinch of salt, perfect on the side.</p>
+            <p style="font-weight: bold; margin-top: 0.5rem;">$3.49</p>
+        </div>
+        <div class="menu-item" style="width: 250px; text-align: center; border: 1px solid #ddd; border-radius: 10px; padding: 1rem; background-color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <img src="{% static 'images/soda.avif' %}" alt="Refreshing Soda" style="width: 100%; border-radius: 10px;">
+            <h3 style="margin: 1rem 0 0.5rem;">Refreshing Soda</h3>
+            <p style="color: #777;">Chilled soda to complement your meal perfectly.</p>
+            <p style="font-weight: bold; margin-top: 0.5rem;">$1.99</p>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta" style="text-align: center; margin: 3rem 0;">
+    <a href="{% url 'menu' %}" style="background-color: #e63946; color: white; padding: 1rem 2rem; border-radius: 30px; font-weight: bold; text-decoration: none; font-size: 1.2rem; transition: background-color 0.3s ease;">
+        See Full Menu & Order Now
+    </a>
+</section>
+
+{% endblock %}

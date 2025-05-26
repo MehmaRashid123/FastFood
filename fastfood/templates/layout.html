@@ -1,0 +1,74 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        FastFood
+        {% endblock %}
+    </title>
+    
+    {%tailwind_css%}
+</head>
+<body class="bg-white text-gray-800">
+
+<!-- 🌟 Professional Header -->
+<header class="bg-white shadow sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0 flex items-center text-2xl font-bold text-red-600">
+        🍔 FastBite
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-8 text-sm font-medium">
+        <a href="{% url 'home' %}" class="text-gray-700 hover:text-red-600 transition">Home</a>
+        <a href="{% url 'menu' %}" class="text-gray-700 hover:text-red-600 transition">Menu</a>
+        <a href="{% url 'deals' %}" class="text-gray-700 hover:text-red-600 transition">Deals</a>
+        <a href="{% url 'contact' %}" class="text-gray-700 hover:text-red-600 transition">Contact</a>
+      </nav>
+
+      <!-- Call-to-Action -->
+      <div class="hidden md:block">
+        <a href="" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-500 transition font-semibold">
+          Order Now
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button id="mobile-toggle" class="text-red-600 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+    <nav class="space-y-2 text-sm font-medium">
+      <a href="" class="block text-gray-700 hover:text-red-600 transition">Home</a>
+      <a href="#" class="block text-gray-700 hover:text-red-600 transition">Menu</a>
+      <a href="" class="block text-gray-700 hover:text-red-600 transition">Deals</a>
+      <a href="" class="block text-gray-700 hover:text-red-600 transition">Contact</a>
+      <a href="" class="block bg-red-600 text-white text-center px-4 py-2 rounded-md hover:bg-red-500 transition">
+        Order Now
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- Main content -->
+<main class="mt-6 px-4 sm:px-6 lg:px-8">
+  {% block content %}
+  {% endblock %}
+</main>
+</body>
+</html>

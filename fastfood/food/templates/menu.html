@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}Menu - FastBite{% endblock %}
+
+{% block content %}
+<section class="max-w-7xl mx-auto px-4 py-10 bg-gray-50 rounded-lg shadow-sm">
+  <h2 class="text-3xl font-bold text-center text-red-600 mb-8">Our Delicious Menu</h2>
+
+  {% if items %}
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    {% for item in items %}
+    <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+      {% if item.image %}
+      <img src="{{ item.image.url }}" alt="{{ item.name }}" class="w-full h-36 object-cover rounded-t-lg">
+      {% else %}
+      <div class="w-full h-36 bg-gray-200 flex items-center justify-center text-gray-500 text-xl rounded-t-lg">
+        No Image
+      </div>
+      {% endif %}
+      <div class="p-5">
+        <h3 class="text-2xl font-semibold text-red-700">{{ item.name }}</h3>
+        <p class="text-gray-700 mt-2">{{ item.description }}</p>
+        <div class="mt-5 flex justify-between items-center">
+          <span class="text-xl font-bold text-yellow-500">${{ item.price }}</span>
+          {% if item.is_available %}
+            <span class="bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">Available</span>
+          {% else %}
+            <span class="bg-gray-200 text-gray-600 text-sm px-3 py-1 rounded-full">Not Available</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+    <p class="text-center text-gray-600">No menu items available right now.</p>
+  {% endif %}
+</section>
+{% endblock %}
